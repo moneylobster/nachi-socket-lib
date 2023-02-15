@@ -94,9 +94,9 @@ class Arm():
 		id : real number
 			what parameter of the arm to modify.
 			Currently, possible ID values are:
-	          1 - X
-	          2 - Y
-	          3 - Z
+				1 - X
+				2 - Y
+				3 - Z
 		val : real number
 			new value for the parameter.
 
