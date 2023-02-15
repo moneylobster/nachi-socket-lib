@@ -83,11 +83,11 @@ class Arm():
 	def modify(self, id, val):
 		"""
 		Send two values to the arm: first to indicate what to modify, and
-        the second to indicate the new value.
-        Currently, possible ID values are:
-          1 - X
-          2 - Y
-          3 - Z
+		the second to indicate the new value.
+		Currently, possible ID values are:
+			1 - X
+			2 - Y
+			3 - Z
 
 		Parameters
 		----------
