@@ -65,6 +65,17 @@ classdef Arm < handle
         function setz(self, val)
             self.modify(3,val);
         end
+        % set x,y,z coordinates of the end-effector.
+        % valvec is a vector of target coordinates: [x, y, z]
+        function setxyz(self, valvec)
+            arguments
+                self
+                valvec {mustBeNumeric, mustBeReal, mustBeFinite}
+            end
+            self.setx(valvec(1))
+            self.sety(valvec(2))
+            self.setz(valvec(3))
+        end
         % ask for the force sensor Fx, Fy, Fz and the end effector x,y,z.
         % blocks operations until arm returns a reply.
         % returns a vector: [Fx Fy Fz x y z]
