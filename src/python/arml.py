@@ -195,6 +195,5 @@ class Arm():
 		"""
 		self.sendmsg(4)  # a 4 indicates a reading request
 		resp=self.client.recv(24, socket.MSG_WAITALL)
-		print(resp)
 		return struct.unpack('>6f',resp)
 		
