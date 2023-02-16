@@ -35,7 +35,7 @@ These instructions are meant for the Nachi MZ07 arm in our lab.
 	* Press the edit button again.
 	* Navigate to the "Status" field. The message "Enable+ON to Start" should pop up.
 	* Press the "ENABLE" and "ON" keys (top left and numpad 1) to start the usertask.
-	* Press the "CLOSE" button (top right) to switch monitors. (This button normally
+	* Press the "CLOSE" button (top right) to switch windows. (This button normally
 	switches focus between windows, and when "ENABLE" and "CLOSE" are pressed, it closes
 	the window in focus.)
 	* Now the Robot Program window should be in focus, with our usertask running in the background.
@@ -48,5 +48,7 @@ These instructions are meant for the Nachi MZ07 arm in our lab.
 	* Choose YES.
 * Now the arm is ready for computer control.
 * To stop, press "ENABLE"+"STOP" (top left and top right) to stop the program.
+* OPTIONAL: switch to the usertask window and stop the usertask. ("CLOSE" to switch, "ENABLE"+"STOP" to stop)
+* OPTIONAL: press the E-STOP button on the pendant to shut off the motors.
 * Turn the dial on the pendant and the key on the cabinet back into the teaching mode. (hand icon)
 * Shut off both boxes in the cabinet.
