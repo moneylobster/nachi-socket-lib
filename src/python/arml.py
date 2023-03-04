@@ -175,11 +175,11 @@ class Arm():
 		"""
 		assert all(isinstance(val, (int, float)) for val in valvec), f"Non-real numeric input ({valvec}) passed to setxyz() function"
 		self.sendmsg(5)
-        self.sendmsg(valvec[0])
-        self.sendmsg(valvec[1])
-        self.sendmsg(valvec[2])
+		self.sendmsg(valvec[0])
+		self.sendmsg(valvec[1])
+		self.sendmsg(valvec[2])
 
-    def setxyz(self, valvec):
+	def setpose(self, valvec):
 		"""
 		set x,y,z coordinates and x,y,z angles of the end-effector.
 
@@ -195,12 +195,12 @@ class Arm():
 		"""
 		assert all(isinstance(val, (int, float)) for val in valvec), f"Non-real numeric input ({valvec}) passed to setxyz() function"
 		self.sendmsg(6)
-        self.sendmsg(valvec[0])
-        self.sendmsg(valvec[1])
-        self.sendmsg(valvec[2])
-        self.sendmsg(valvec[3])
-        self.sendmsg(valvec[4])
-        self.sendmsg(valvec[5])
+		self.sendmsg(valvec[0])
+		self.sendmsg(valvec[1])
+		self.sendmsg(valvec[2])
+		self.sendmsg(valvec[3])
+		self.sendmsg(valvec[4])
+		self.sendmsg(valvec[5])
 
 	def reading(self):
 		"""
@@ -213,12 +213,12 @@ class Arm():
 		array of 12 real numbers
 			[Fx Fy Fz Tx Ty Tz x y z xang yang zang] where
 			Fx, Fy, Fz are the force sensor readings in x, y, z directions
-            Tx, Ty, Tz are the force sensor's torque readings in x, y, z axes
+			Tx, Ty, Tz are the force sensor's torque readings in x, y, z axes
 			x, y, z are the arm's end-effector's current x, y, z coordinates
-            xang, yang, zang are the arm's end-effector's current x, y, z rotations
+			xang, yang, zang are the arm's end-effector's current x, y, z rotations
 
 		"""
 		self.sendmsg(4)  # a 4 indicates a reading request
-		resp=self.client.recv(24, socket.MSG_WAITALL)
+		resp=self.client.recv(48, socket.MSG_WAITALL)
 		return struct.unpack('>12f',resp)
 		
