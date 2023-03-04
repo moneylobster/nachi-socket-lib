@@ -174,26 +174,51 @@ class Arm():
 
 		"""
 		assert all(isinstance(val, (int, float)) for val in valvec), f"Non-real numeric input ({valvec}) passed to setxyz() function"
-		
-		self.setx(valvec[0])
-		self.sety(valvec[1])
-		self.setz(valvec[2])
+		self.sendmsg(5)
+        self.sendmsg(valvec[0])
+        self.sendmsg(valvec[1])
+        self.sendmsg(valvec[2])
 
-	def reading(self):
+    def setxyz(self, valvec):
 		"""
-		ask for the force sensor Fx, Fy, Fz and the end effector x,y,z.
-		blocks operations until arm returns a reply.
-		returns a vector: [Fx Fy Fz x y z]
+		set x,y,z coordinates and x,y,z angles of the end-effector.
+
+		Parameters
+		----------
+		valvec : array of real numbers
+			new [x, y, z, xang, yang, zang] values for the arm end-effector.
 
 		Returns
 		-------
-		array of 6 real numbers
-			[Fx, Fy, Fz, x, y, z] where
+		None.
+
+		"""
+		assert all(isinstance(val, (int, float)) for val in valvec), f"Non-real numeric input ({valvec}) passed to setxyz() function"
+		self.sendmsg(6)
+        self.sendmsg(valvec[0])
+        self.sendmsg(valvec[1])
+        self.sendmsg(valvec[2])
+        self.sendmsg(valvec[3])
+        self.sendmsg(valvec[4])
+        self.sendmsg(valvec[5])
+
+	def reading(self):
+		"""
+		ask for the force sensor forces Fx, Fy, Fz and torques Tx, Ty, Tz and the end effector pos x,y,z and angle x,y,z.
+		blocks operations until arm returns a reply.
+		returns a vector: [Fx Fy Fz Tx Ty Tz x y z xang yang zang]
+
+		Returns
+		-------
+		array of 12 real numbers
+			[Fx Fy Fz Tx Ty Tz x y z xang yang zang] where
 			Fx, Fy, Fz are the force sensor readings in x, y, z directions
+            Tx, Ty, Tz are the force sensor's torque readings in x, y, z axes
 			x, y, z are the arm's end-effector's current x, y, z coordinates
+            xang, yang, zang are the arm's end-effector's current x, y, z rotations
 
 		"""
 		self.sendmsg(4)  # a 4 indicates a reading request
 		resp=self.client.recv(24, socket.MSG_WAITALL)
-		return struct.unpack('>6f',resp)
+		return struct.unpack('>12f',resp)
 		

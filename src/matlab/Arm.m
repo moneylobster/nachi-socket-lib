@@ -7,7 +7,6 @@
 % create an Arm object
 % configure ip and port variables
 % call connect() to establish connection
-% call modify(id, val) to modify the arm's coordinates
 % TODO:
 % add some safety limits to the coordinate values
 classdef Arm < handle
@@ -71,21 +70,37 @@ classdef Arm < handle
             arguments
                 self
                 valvec {mustBeNumeric, mustBeReal, mustBeFinite}
-            end
-            self.setx(valvec(1))
-            self.sety(valvec(2))
-            self.setz(valvec(3))
+			end
+			self.sendmsg(5)
+			self.sendmsg(valvec(1))
+            self.sendmsg(valvec(2))
+            self.sendmsg(valvec(3))
         end
-        % ask for the force sensor Fx, Fy, Fz and the end effector x,y,z.
+		% set x,y,z coordinates and x,y,z angles of the end-effector.
+        % valvec is a vector of target coordinates: [x, y, z, xang, yang, zang]
+		function setall(self, valvec)
+            arguments
+                self
+                valvec {mustBeNumeric, mustBeReal, mustBeFinite}
+			end
+			self.sendmsg(6)
+			self.sendmsg(valvec(1))
+            self.sendmsg(valvec(2))
+            self.sendmsg(valvec(3))
+			self.sendmsg(valvec(4))
+            self.sendmsg(valvec(5))
+            self.sendmsg(valvec(6))
+        end
+        % ask for the force sensor forces Fx, Fy, Fz and torques Tx, Ty, Tz and the end effector pos x,y,z and angle x,y,z.
         % blocks operations until arm returns a reply.
-        % returns a vector: [Fx Fy Fz x y z]
+        % returns a vector: [Fx Fy Fz Tx Ty Tz x y z xang yang zang]
         function res=reading(self)
             self.sendmsg(4); % a 4 indicates a reading request
             % if the blocking reading operation turns out to be a problem,
             % configureCallback can be used instead to define a callback
             % function that returns when enough data is available (6*4
             % bytes in this case)
-            res=read(self.client,6,'single');
+            res=read(self.client,12,'single');
         end
     end
 end
