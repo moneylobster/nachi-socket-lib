@@ -57,6 +57,12 @@ proc sn {sock msg} {
 	puts -nonewline $sock $msg
 	puts -nonewline $sock $msg
 	puts -nonewline $sock $msg
+	puts -nonewline $sock $msg
+	puts -nonewline $sock $msg
+	puts -nonewline $sock $msg
+	puts -nonewline $sock $msg
+	puts -nonewline $sock $msg
+	puts -nonewline $sock $msg
 }
 
 foreach a {a1 a2 a3 a4 a5 a6} {

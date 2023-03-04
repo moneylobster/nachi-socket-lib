@@ -70,24 +70,24 @@ classdef Arm < handle
             arguments
                 self
                 valvec {mustBeNumeric, mustBeReal, mustBeFinite}
-			end
-			self.sendmsg(5)
-			self.sendmsg(valvec(1))
+            end
+            self.sendmsg(5)
+            self.sendmsg(valvec(1))
             self.sendmsg(valvec(2))
             self.sendmsg(valvec(3))
         end
-		% set x,y,z coordinates and x,y,z angles of the end-effector.
+        % set x,y,z coordinates and x,y,z angles of the end-effector.
         % valvec is a vector of target coordinates: [x, y, z, xang, yang, zang]
-		function setall(self, valvec)
+        function setpose(self, valvec)
             arguments
                 self
                 valvec {mustBeNumeric, mustBeReal, mustBeFinite}
-			end
-			self.sendmsg(6)
-			self.sendmsg(valvec(1))
+            end
+            self.sendmsg(6)
+            self.sendmsg(valvec(1))
             self.sendmsg(valvec(2))
             self.sendmsg(valvec(3))
-			self.sendmsg(valvec(4))
+            self.sendmsg(valvec(4))
             self.sendmsg(valvec(5))
             self.sendmsg(valvec(6))
         end
