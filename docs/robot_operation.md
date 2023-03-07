@@ -30,7 +30,7 @@ TODO: add in force sensor calibration
 	* Select "37 User Task" then "1 User Task Monitor"
 * Run the socket server usertask:
 	* Press the edit button (pen and paper, underneath numpad)
-	* Navigate to the second row, and write in 72 to the "Prog." field.
+	* Navigate to the second row, and write in 100 to the "Prog." field.
 	* Press the edit button again.
 	* Navigate to the "Status" field. The message "Enable+ON to Start" should pop up.
 	* Press the "ENABLE" and "ON" keys (top left and numpad 1) to start the usertask.

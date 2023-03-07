@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-arml - Python wrapper for tcp websocket-based control of the Nachi-Fujikoshi robot arm
+arml - Python wrapper for tcp socket-based control of the Nachi-Fujikoshi robot arm
 Created on Wed Feb 15 12:41:54 2023
 
 @author: Anil

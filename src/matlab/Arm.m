@@ -7,8 +7,6 @@
 % create an Arm object
 % configure ip and port variables
 % call connect() to establish connection
-% TODO:
-% add some safety limits to the coordinate values
 classdef Arm < handle
     properties
         ip = 'localhost'
