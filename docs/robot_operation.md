@@ -13,10 +13,7 @@ TODO: add in force sensor calibration
 	* Press the "Constant Setting" button.
 	* Select "8 Communication", then "2 Ethernet", then "1 TCP/IP"
 	* Note down the IP address of the robot. The computer-side client needs this to connect.
-	* TROUBLESHOOTING: If the IP address shows up as 0.0.0.0, one solution I've found is to restart the computer
-	to force the computer to assign a new IP to the robot arm. Other methods can be tried as well,
-	such as assigning the robot a static IP address from the pendant or maybe trying to get mDNS
-	resolution working. If you come across something, send a pull request.
+	* TROUBLESHOOTING: If the IP address shows up as 0.0.0.0, restart Windows' DHCP server: Go to network settings on the computer and set the IP assignment to manual-IPv4, then back to automatic.
 	* Press R until you get back to the main screen.
 * Ensure that the robot program is the correct one:
 	* On the top of the teach pendant screen, the "program" field should read 73.
