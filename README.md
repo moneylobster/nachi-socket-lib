@@ -9,7 +9,7 @@ the robot for computer control.
 
 ### MATLAB:
 Place the ```Arm.m``` file in your current working directory.
-```
+```matlab
 a = Arm %create arm object
 a.ip = '127.0.0.1' %set ip
 a.port = 10300 %set port
@@ -20,7 +20,7 @@ a.disconnect %close connection
 ```
 ### Python:
 Place the ```arml.py``` file in your current working directory.
-```
+```python
 import arml
 
 a=arml.Arm('127.0.0.1', 10300) #create an Arm object, set the ip and port
@@ -33,3 +33,4 @@ a.disconnect() #close connection
 ## TODO:
 - Angle readings are currently returned as 0, fix.
 - Modify robot usertask so that robot doesn't start movement until entire command received.
+- angles in setpose seem to follow z,y,x instead of x,y,z, fix either usertask or lib.
