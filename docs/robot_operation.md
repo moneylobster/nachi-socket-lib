@@ -9,6 +9,8 @@ TODO: add in force sensor calibration
 	* Press the R button.
 	* Type in 314 to get the "Change the protecting level" option and press enter.
 	* Type in 12345 as the password.
+* At this point, you may want to calibrate the force-torque sensor readings if you are going to be using them
+	* See [this document](force_calibration.md) for instructions.
 * Now view the IP assigned to the robot arm:
 	* Press the "Constant Setting" button.
 	* Select "8 Communication", then "2 Ethernet", then "1 TCP/IP"
@@ -17,9 +19,9 @@ TODO: add in force sensor calibration
 	* TROUBLESHOOTING: If the IP address shows up as 0.0.0.0, restart Windows' DHCP server: Go to network settings on the computer and set the IP assignment to manual-IPv4, then back to automatic.
 	* Press R until you get back to the main screen.
 * Ensure that the robot program is the correct one:
-	* On the top of the teach pendant screen, the "program" field should read 73.
+	* On the top of the teach pendant screen, the "program" field should read 100.
 	* If not, change the program:
-		* Press "ENABLE"+"PROG" (ENABLE is in top left and PROG is above the arrows) and type in 73 as the designated program.
+		* Press "ENABLE"+"PROG" (ENABLE is in top left and PROG is above the arrows) and type in 100 as the designated program.
 * Change the robot's operation mode from teach to playback:
 	* We do this to execute the robot program continuously without human involvement
 	* Keep the teach pendant next to you, and press the E-STOP button (top right, red) if the robot needs to be stopped from this point onwards.

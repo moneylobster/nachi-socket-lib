@@ -4,7 +4,7 @@ MATLAB and Python wrappers for tcp websocket-based control of the Nachi MZ07 rob
 ## Usage
 
 ### Robot Setup
-Follow the instructions in [the documentation](docs/robot_operation.md) to prepare
+Follow the instructions in [this document](docs/robot_operation.md) to prepare
 the robot for computer control.
 
 ### MATLAB:
@@ -15,6 +15,7 @@ a.ip = '127.0.0.1' %set ip
 a.port = 10300 %set port
 a.connect %connect
 a.setxyz([400 0 500]) %set x,y,z coordinates to (400, 0, 500)
+a.setpose([500 0, 400 180 0 -120]) %you can also modify end effector angles
 reading = a.reading %get force sensor readings and arm's current coordinates
 a.disconnect %close connection
 ```
@@ -26,11 +27,10 @@ import arml
 a=arml.Arm('127.0.0.1', 10300) #create an Arm object, set the ip and port
 a.connect() #connect
 a.setxyz([400,0,500]) #set x,y,z coordinates to (400, 0, 500)
+a.setpose([500, 0, 400, 180, 0, -120]) #you can also modify end effector angles
 reading = a.reading() #get force sensor readings and arm's current coordinates
 a.disconnect() #close connection
 ```
 
 ## TODO:
 - Angle readings are currently returned as 0, fix.
-- Modify robot usertask so that robot doesn't start movement until entire command received.
-- angles in setpose seem to follow z,y,x instead of x,y,z, fix either usertask or lib.
