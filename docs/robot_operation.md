@@ -1,6 +1,5 @@
 # Robot Arm Setup
 These instructions are meant for the Nachi MZ07 arm in our lab.
-TODO: add in force sensor calibration
 
 * Connect the black cable in the cabinet to the force sensor. The white arrows on both connectors should match.
 * Connect the white ethernet cable to the controlling computer.
