@@ -15,7 +15,7 @@ a.ip = '127.0.0.1' %set ip
 a.port = 10300 %set port
 a.connect %connect
 a.setxyz([400 0 500]) %set x,y,z coordinates to (400, 0, 500)
-a.setpose([500 0, 400 180 0 -120]) %you can also modify end effector angles
+a.setpose([500 0 400 180 0 -120]) %you can also modify end effector angles
 reading = a.reading %get force sensor readings and arm's current coordinates
 a.disconnect %close connection
 ```
