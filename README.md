@@ -34,3 +34,4 @@ a.disconnect() #close connection
 
 ## TODO:
 - Angle readings are currently returned as 0, fix.
+- Joint-level control doesn't work yet
