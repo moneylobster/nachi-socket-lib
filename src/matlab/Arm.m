@@ -89,16 +89,35 @@ classdef Arm < handle
             self.sendmsg(valvec(5))
             self.sendmsg(valvec(6))
         end
-        % ask for the force sensor forces Fx, Fy, Fz and torques Tx, Ty, Tz and the end effector pos x,y,z and angle x,y,z.
-        % blocks operations until arm returns a reply.
-        % returns a vector: [Fx Fy Fz Tx Ty Tz x y z xang yang zang]
+		% set joint angles (radians) of the arm.
+        % valvec is a vector denoting new [J1 J2 J3 J4 J5 J6] values for the arm.
+        function setjoints(self, valvec)
+            arguments
+                self
+                valvec {mustBeNumeric, mustBeReal, mustBeFinite}
+            end
+            self.sendmsg(7)
+            self.sendmsg(valvec(1))
+            self.sendmsg(valvec(2))
+            self.sendmsg(valvec(3))
+            self.sendmsg(valvec(4))
+            self.sendmsg(valvec(5))
+            self.sendmsg(valvec(6))
+        end
+        % ask for the force sensor forces Fx, Fy, Fz and torques Tx, Ty, Tz and the end effector pos x,y,z and arm joint angles.
+		% blocks operations until arm returns a reply.
+		% returns a vector [Fx Fy Fz Tx Ty Tz x y z J1 J2 J3 J4 J5 J6] where
+		% 	Fx, Fy, Fz are the force sensor readings in x, y, z directions
+		%	Tx, Ty, Tz are the force sensor's torque readings in x, y, z axes
+		%	x, y, z are the arm's end-effector's current x, y, z coordinates
+		%	J1, J2, J3, J4, J5, J6 are the arm's joint angles, in radians
         function res=reading(self)
             self.sendmsg(4); % a 4 indicates a reading request
             % if the blocking reading operation turns out to be a problem,
             % configureCallback can be used instead to define a callback
             % function that returns when enough data is available (6*4
             % bytes in this case)
-            res=read(self.client,12,'single');
+            res=read(self.client,15,'single');
         end
     end
 end

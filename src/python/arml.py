@@ -201,24 +201,47 @@ class Arm():
 		self.sendmsg(valvec[3])
 		self.sendmsg(valvec[4])
 		self.sendmsg(valvec[5])
+    
+    def setjoints(self, valvec):
+		"""
+		set joint angles (radians) of the arm.
+
+		Parameters
+		----------
+		valvec : array of radians
+			new [J1 J2 J3 J4 J5 J6] values for the arm.
+
+		Returns
+		-------
+		None.
+
+		"""
+		assert all(isinstance(val, (int, float)) for val in valvec), f"Non-real numeric input ({valvec}) passed to setjoints() function"
+		self.sendmsg(7)
+		self.sendmsg(valvec[0])
+		self.sendmsg(valvec[1])
+		self.sendmsg(valvec[2])
+		self.sendmsg(valvec[3])
+		self.sendmsg(valvec[4])
+		self.sendmsg(valvec[5])
 
 	def reading(self):
 		"""
-		ask for the force sensor forces Fx, Fy, Fz and torques Tx, Ty, Tz and the end effector pos x,y,z and angle x,y,z.
+		ask for the force sensor forces Fx, Fy, Fz and torques Tx, Ty, Tz and the end effector pos x,y,z and arm joint angles.
 		blocks operations until arm returns a reply.
 		returns a vector: [Fx Fy Fz Tx Ty Tz x y z xang yang zang]
 
 		Returns
 		-------
-		array of 12 real numbers
-			[Fx Fy Fz Tx Ty Tz x y z xang yang zang] where
+		array of 15 real numbers
+			[Fx Fy Fz Tx Ty Tz x y z J1 J2 J3 J4 J5 J6] where
 			Fx, Fy, Fz are the force sensor readings in x, y, z directions
 			Tx, Ty, Tz are the force sensor's torque readings in x, y, z axes
 			x, y, z are the arm's end-effector's current x, y, z coordinates
-			xang, yang, zang are the arm's end-effector's current x, y, z rotations
+			J1, J2, J3, J4, J5, J6 are the arm's joint angles, in radians
 
 		"""
 		self.sendmsg(4)  # a 4 indicates a reading request
-		resp=self.client.recv(48, socket.MSG_WAITALL)
-		return struct.unpack('>12f',resp)
+		resp=self.client.recv(60, socket.MSG_WAITALL)
+		return struct.unpack('>15f',resp)
 		
