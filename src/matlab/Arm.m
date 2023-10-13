@@ -89,7 +89,7 @@ classdef Arm < handle
             self.sendmsg(valvec(5))
             self.sendmsg(valvec(6))
         end
-        % set joint angles (radians) of the arm.
+        % set joint angles (degrees) of the arm.
         % valvec is a vector denoting new [J1 J2 J3 J4 J5 J6] values for the arm.
         function setjoints(self, valvec)
             arguments

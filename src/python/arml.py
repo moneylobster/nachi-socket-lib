@@ -202,13 +202,13 @@ class Arm():
 		self.sendmsg(valvec[4])
 		self.sendmsg(valvec[5])
     
-    def setjoints(self, valvec):
+        def setjoints(self, valvec):
 		"""
-		set joint angles (radians) of the arm.
+		set joint angles (degrees) of the arm.
 
 		Parameters
 		----------
-		valvec : array of radians
+		valvec : array of degrees
 			new [J1 J2 J3 J4 J5 J6] values for the arm.
 
 		Returns

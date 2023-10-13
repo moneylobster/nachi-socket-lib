@@ -16,7 +16,8 @@ a.port = 10300 %set port
 a.connect %connect
 a.setxyz([400 0 500]) %set x,y,z coordinates to (400, 0, 500)
 a.setpose([500 0 400 180 0 -120]) %you can also modify end effector angles
-reading = a.reading %get force sensor readings and arm's current coordinates
+a.setjoints([0 80 0 0 0 0]) %or control each joint separately
+reading = a.reading %get force sensor readings, arm's current coordinates, and joint angles
 a.disconnect %close connection
 ```
 ### Python:
@@ -28,10 +29,10 @@ a=arml.Arm('127.0.0.1', 10300) #create an Arm object, set the ip and port
 a.connect() #connect
 a.setxyz([400,0,500]) #set x,y,z coordinates to (400, 0, 500)
 a.setpose([500, 0, 400, 180, 0, -120]) #you can also modify end effector angles
-reading = a.reading() #get force sensor readings and arm's current coordinates
+a.setjoints([0,80,0,0,0,0]) #or control each joint separately
+reading = a.reading() #get force sensor readings, arm's current coordinates, and joint angles
 a.disconnect() #close connection
 ```
 
 ## TODO:
-- Angle readings are currently returned as 0, fix.
-- Joint-level control doesn't work yet
+- End effector angle readings are currently wrongly returned as 0.
