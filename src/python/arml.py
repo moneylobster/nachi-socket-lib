@@ -31,7 +31,7 @@ class Arm():
 		"""
 		self.ip=ip
 		self.port=port
-	
+		
 	def connect(self):
 		"""
 		Connect to the stored port and ip.
@@ -43,7 +43,7 @@ class Arm():
 		"""
 		self.client=socket.socket()
 		self.client.connect((self.ip, self.port))
-	
+		
 	def sendmsg(self, msg):
 		"""
 		Send a big-endian single-precision float to the robot over tcp.
@@ -61,7 +61,7 @@ class Arm():
 		assert isinstance(msg, (int, float)), f"Non-real numeric input ({msg}) passed to sendmsg() function"
 		
 		self.client.send(struct.pack('>f',msg))
-	
+		
 	def disconnect(self):
 		"""
 		Send a -9999 so that the robot closes and reopens its websocket.
@@ -79,7 +79,7 @@ class Arm():
 		# but if needed:
 		# self.client.shutdown(socket.SHUT_RDWR)
 		self.client.close() #close socket on our side
-	
+		
 	def modify(self, id, val):
 		"""
 		Send two values to the arm: first to indicate what to modify, and
@@ -110,7 +110,7 @@ class Arm():
 		
 		self.sendmsg(id)
 		self.sendmsg(val)
-	
+		
 	def setx(self, val):
 		"""
 		set x coordinate of the end-effector.
@@ -126,7 +126,7 @@ class Arm():
 
 		"""
 		self.modify(1, val)
-	
+		
 	def sety(self, val):
 		"""
 		set y coordinate of the end-effector.
@@ -142,7 +142,7 @@ class Arm():
 
 		"""
 		self.modify(2, val)
-	
+		
 	def setz(self, val):
 		"""
 		set z coordinate of the end-effector.
@@ -158,7 +158,7 @@ class Arm():
 
 		"""
 		self.modify(3, val)
-	
+		
 	def setxyz(self, valvec):
 		"""
 		set x,y,z coordinates of the end-effector.
@@ -201,8 +201,8 @@ class Arm():
 		self.sendmsg(valvec[3])
 		self.sendmsg(valvec[4])
 		self.sendmsg(valvec[5])
-    
-        def setjoints(self, valvec):
+		
+	def setjoints(self, valvec):
 		"""
 		set joint angles (degrees) of the arm.
 
@@ -241,7 +241,7 @@ class Arm():
 			J1, J2, J3, J4, J5, J6 are the arm's joint angles, in radians
 
 		"""
-		self.sendmsg(4)  # a 4 indicates a reading request
+		self.sendmsg(4)	 # a 4 indicates a reading request
 		resp=self.client.recv(60, socket.MSG_WAITALL)
 		return struct.unpack('>15f',resp)
-		
+	
