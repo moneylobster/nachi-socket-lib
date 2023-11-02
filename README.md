@@ -3,6 +3,10 @@ MATLAB and Python wrappers for tcp websocket-based control of the Nachi MZ07 rob
 
 ## Usage
 
+### First-time Robot Configuration
+The files in `src/nachi` need to be transferred to the robot and compiled.
+The notes in [this document](docs/robot_configuration.md) may be helpful.
+
 ### Robot Setup
 Follow the instructions in [this document](docs/robot_operation.md) to prepare
 the robot for computer control.
