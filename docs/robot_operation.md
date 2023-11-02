@@ -27,7 +27,7 @@ These instructions are meant for the Nachi MZ07 arm in our lab.
 	* Press R until you get back to the main screen.
 	
 > [!NOTE]
-> You can also use the mDNS address instead of the IP: `NRA2011.local`
+> You can also use the mDNS address instead of the IP: `NRA2011.local`.
 > This may not work if your computer doesn't support mDNS.
 
 ## Running the robot programs
