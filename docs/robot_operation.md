@@ -1,5 +1,5 @@
 # Robot Arm Setup
-These instructions are meant for the Nachi MZ07 arm in our lab.
+These instructions are meant for the Nachi MZ07 arm in our lab, so some details may differ for other robots.
 
 ## Turning the arm on
 * Connect the black cable in the cabinet to the force sensor. The white arrows on both connectors should match.
@@ -63,7 +63,7 @@ These instructions are meant for the Nachi MZ07 arm in our lab.
 	> The robot arm will move to a default pose upon execution. Clear the area!
 	* Press "ENABLE"+"SHIFT"+"GO" to run the program. (ENABLE and SHIFT are in top left, GO is on the right)
 	* Choose YES.
-* Now the arm is ready for computer control.
+* Now the arm is ready for computer control. You can try the examples in [README](../README.md) from your computer.
 
 ## Stopping the robot
 * To stop, press "ENABLE"+"STOP" (top left and top right) to stop the program.
