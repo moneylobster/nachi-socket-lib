@@ -22,8 +22,8 @@ These instructions are meant for the Nachi MZ07 arm in our lab, so some details 
 	* Press the "Constant Setting" button.
 	* Select "8 Communication", then "2 Ethernet", then "1 TCP/IP"
 	* Note down the IP address of the robot. The computer-side client needs this to connect.
-	> [!IMPORTANT]
-	> If the IP address shows up as 0.0.0.0 in Windows, restart Windows' DHCP server: Go to network settings on the computer and set the IP assignment to manual-IPv4, then back to automatic.
+> [!IMPORTANT]
+> If the IP address shows up as 0.0.0.0 in Windows, restart Windows' DHCP server: Go to network settings on the computer and set the IP assignment to manual-IPv4, then back to automatic.
 	* Press R until you get back to the main screen.
 	
 > [!NOTE]
@@ -59,8 +59,8 @@ These instructions are meant for the Nachi MZ07 arm in our lab, so some details 
 	* Press "ENABLE"+"MOTOR ON" (both in top left)
 	* If it doesn't work, check the E-STOP button. You should hear an audible click when it works.
 * Run the robot program:
-	> [!WARNING]
-	> The robot arm will move to a default pose upon execution. Clear the area!
+> [!WARNING]
+> The robot arm will move to a default pose upon execution. Clear the area!
 	* Press "ENABLE"+"SHIFT"+"GO" to run the program. (ENABLE and SHIFT are in top left, GO is on the right)
 	* Choose YES.
 * Now the arm is ready for computer control. You can try the examples in [README](../README.md) from your computer.
