@@ -42,6 +42,7 @@ class Arm():
 
 		"""
 		self.client=socket.socket()
+                self.client.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 		self.client.connect((self.ip, self.port))
 		
 	def sendmsg(self, msg):
