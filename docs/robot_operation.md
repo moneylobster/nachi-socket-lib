@@ -22,9 +22,10 @@ These instructions are meant for the Nachi MZ07 arm in our lab, so some details 
 	* Press the "Constant Setting" button.
 	* Select "8 Communication", then "2 Ethernet", then "1 TCP/IP"
 	* Note down the IP address of the robot. The computer-side client needs this to connect.
+	* Press R until you get back to the main screen.
 > [!IMPORTANT]
 > If the IP address shows up as 0.0.0.0 in Windows, restart Windows' DHCP server: Go to network settings on the computer and set the IP assignment to manual-IPv4, then back to automatic.
-	* Press R until you get back to the main screen.
+	
 	
 > [!NOTE]
 > You can also use the mDNS address instead of the IP: `NRA2011.local`.
@@ -71,3 +72,4 @@ These instructions are meant for the Nachi MZ07 arm in our lab, so some details 
 * OPTIONAL: press the E-STOP button on the pendant to shut off the motors.
 * Turn the dial on the pendant and the key on the cabinet back into the teaching mode. (hand icon)
 * Shut off both boxes in the cabinet.
+
